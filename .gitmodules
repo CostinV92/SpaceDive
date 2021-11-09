@@ -1,0 +1,6 @@
+[submodule "CNCShield-Pico"]
+	path = CNCShield-Pico
+	url = git@github.com:CostinV92/CNCShield-Pico.git
+[submodule "SimpleDS3231-Pico"]
+	path = SimpleDS3231-Pico
+	url = git@github.com:CostinV92/SimpleDS3231-Pico.git
