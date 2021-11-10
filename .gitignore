@@ -1,0 +1,5 @@
+build/
+cnc_shield_lib_import.cmake
+simple_ds3231_lib_import.cmake
+pico_sdk_import.cmake
+notes.txt
