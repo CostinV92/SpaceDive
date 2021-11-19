@@ -1,0 +1,41 @@
+App architecture:
+
+Core0
+    -> Menu
+        -> SettingsMenu
+            -> set latitude                 -> call Settings::set_latitude()
+            -> set longitude                -> call Settings::set_longitude()
+            -> set date                     -> call Settings::set_date()
+            -> set time                     -> call Settings::set_time()
+
+        -> GoToMenu
+            -> calibrate                    -> call GoTo::calibrate()
+            -> star from StarDatabase       -> call GoTo::star()
+            -> position (DEC/RA)            -> call GoTo::position()
+
+    -> Goto
+        -> calibrate()
+
+        -> star()
+            -> call GoTo::position(star_position)
+
+        -> position()
+            -> calculate current position
+                -> call CommandDispatcher::sendGotoCommand()
+
+    -> Emergecy
+        -> disable CNC Shield (!!! racing conditions)
+
+Core1
+    -> CommandListener
+        -> GoTo 
+            -> slide to position
+
+        -> Start
+            -> start tracking
+
+        -> Stop
+            -> stop tracking
+
+    -> Track current position
+        -> update RA
